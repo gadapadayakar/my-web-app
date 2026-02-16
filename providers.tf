@@ -14,4 +14,9 @@ provider "google" {
   region  = var.region
   zone    = var.zone  
 }
-
+terraform {
+  backend "gcs" {
+    bucket  = "dayakar-tf-state-unique-id" # Must match exactly what you created
+    prefix  = "terraform/state"
+  }
+}
