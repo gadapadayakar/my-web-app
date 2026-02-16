@@ -13,6 +13,6 @@ terraform {
 }
 
 provider "google" {
-  project = "var.project_id"
+  project = "monitoring-482610"
   region  = "asia-south1"
 }
