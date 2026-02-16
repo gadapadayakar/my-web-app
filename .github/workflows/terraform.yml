@@ -1,3 +1,4 @@
+cat <<'EOT' > .github/workflows/terraform.yml
 name: 'Terraform GCP Deploy'
 
 on:
@@ -9,16 +10,26 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+
+    # This check will help us confirm the secret is reaching the runner
+    - name: 'Check Secret Visibility'
+      run: |
+        if [ -z "${{ secrets.MY_SA }}" ]; then
+          echo "❌ ERROR: MY_SA is empty. Check GitHub Settings -> Secrets."
+          exit 1
+        else
+          echo "✅ SUCCESS: MY_SA is found."
+        fi
 
     - id: 'auth'
       name: 'Authenticate to Google Cloud'
       uses: 'google-github-actions/auth@v2'
       with:
-        credentials_json: '${{ secrets.GCP_SA_KEY }}'
+        # NOTE: Removed the backslash (\) so GitHub can read the secret
+        credentials_json: '${{ secrets.MY_SA }}'
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
@@ -32,3 +43,4 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve -input=false
+EOT
