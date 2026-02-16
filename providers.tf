@@ -12,7 +12,6 @@ terraform {
 provider "google" {
   project = var.project_id
   region  = var.region
-  zone    = var.zone
-  credentials = file(var.sa_key_path)
+  zone    = var.zone  
 }
 
