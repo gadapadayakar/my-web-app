@@ -1,22 +1,18 @@
 terraform {
-  required_version = ">= 1.5.0"
-
   required_providers {
     google = {
       source  = "hashicorp/google"
       version = "~> 5.0"
     }
   }
+
+  backend "gcs" {
+    bucket  = "dayakar-terraform-state"
+    prefix  = "terraform/state"
+  }
 }
 
 provider "google" {
-  project = var.project_id
-  region  = var.region
-  zone    = var.zone  
-}
-terraform {
-  backend "gcs" {
-    bucket  = "dayakar-tf-state-unique-id" # Must match exactly what you created
-    prefix  = "terraform/state"
-  }
+  project = "YOUR_PROJECT_ID"
+  region  = "asia-south1"
 }
