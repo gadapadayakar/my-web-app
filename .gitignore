@@ -1,0 +1,11 @@
+# Secret keys
+key.json
+terraform.tfvars
+
+# Terraform internals
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# Big binaries
+*.exe
