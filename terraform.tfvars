@@ -1,0 +1,9 @@
+environment     = "dev"
+vm_name         = "mon-vm"
+network_name    = "vpc-mon"
+subnetwork_name = "mon-sub"
+vm_count        = 3
+project_id      = "monitoring-482610"
+region          = "asia-south1"
+zone            = "asia-south1-a"
+sa_key_path     = "D:/dev-ops/terraform/project-mon/key.json"
