@@ -13,6 +13,6 @@ terraform {
 }
 
 provider "google" {
-  project = "monitoring-482610"
+  project = "my-data-488509"
   region  = "asia-south1"
 }

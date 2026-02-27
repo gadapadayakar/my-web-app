@@ -20,11 +20,11 @@ variable "subnetwork_name" {
 
 variable "vm_count" {
   type    = number
-  default = 3
+  default = 2
 }
 variable "project_id" {
 
-  description = "monitoring-482610"
+  description = "	my-data-488509"
   type        = string
 }
 variable "region" {

@@ -1,9 +1,9 @@
 environment     = "dev"
 vm_name         = "mon-vm"
-network_name    = "vpc-mon"
-subnetwork_name = "mon-sub"
-vm_count        = 1
-project_id      = "monitoring-482610"
+network_name    = "my-vpc"
+subnetwork_name = "my-sub"
+vm_count        = 2
+project_id      = "my-data-488509"
 region          = "asia-south1"
-zone            = "asia-south1-a"
+zone            = "asia-south1-b"
 sa_key_path     = "D:/dev-ops/terraform/project-mon/key.json"
